@@ -30,7 +30,7 @@ export default function Start(props) {
         style={styles.image}
       >
 
-        <Text style={styles.title}>App title</Text>
+        <Text style={styles.title}>Chat App</Text>
 
         <View style={styles.box}>
 
