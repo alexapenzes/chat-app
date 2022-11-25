@@ -155,7 +155,7 @@ export default class Chat extends React.Component {
       uid: this.state.uid,
       _id: message._id,
       createdAt: message.createdAt,
-      text: message.text || '',
+      text: message.text || "",
       user: this.state.user,
       image: message.image || null,
       location: message.location || null,
@@ -219,23 +219,23 @@ export default class Chat extends React.Component {
     let color = this.props.route.params.color;
     return (
       <ActionSheetProvider>
-      <View style={[styles.container, { backgroundColor: color }]}>
-        <GiftedChat
-          renderBubble={this.renderBubble.bind(this)}
-          renderInputToolbar={this.renderInputToolbar.bind(this)}
-          renderActions={this.renderCustomActions.bind(this)}
-          renderCustomView={this.renderCustomView}
-          messages={this.state.messages}
-          onSend={(messages) => this.onSend(messages)}
-          user={{
-            _id: this.state.uid,
-            avatar: "https://placeimg.com/140/140/any",
-          }}
-        />
-        {Platform.OS === "android" ? (
-          <KeyboardAvoidingView behavior="height" />
-        ) : null}
-      </View>
+        <View style={[styles.container, { backgroundColor: color }]}>
+          <GiftedChat
+            renderBubble={this.renderBubble.bind(this)}
+            renderInputToolbar={this.renderInputToolbar.bind(this)}
+            renderActions={this.renderCustomActions.bind(this)}
+            renderCustomView={this.renderCustomView}
+            messages={this.state.messages}
+            onSend={(messages) => this.onSend(messages)}
+            user={{
+              _id: this.state.uid,
+              avatar: "https://placeimg.com/140/140/any",
+            }}
+          />
+          {Platform.OS === "android" ? (
+            <KeyboardAvoidingView behavior="height" />
+          ) : null}
+        </View>
       </ActionSheetProvider>
     );
   }

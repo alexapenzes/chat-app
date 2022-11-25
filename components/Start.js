@@ -1,7 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, TextInput, View, Pressable, TouchableOpacity, ImageBackground } from 'react-native';
-import BackgroundImage from '../assets/bg.png';
-
+import React, { useState, useEffect } from "react";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Pressable,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
+import BackgroundImage from "../assets/bg.png";
 
 // Create constant that holds background colors for Chat Screen
 const colors = {
@@ -12,7 +19,7 @@ const colors = {
 };
 
 export default function Start(props) {
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
   const [color, setColor] = useState(colors.black);
 
   // Setting default name and background color
@@ -21,25 +28,22 @@ export default function Start(props) {
   //   setColor(colors.black);
   // }, [])
 
-
   return (
     <View style={styles.container}>
       <ImageBackground
         source={BackgroundImage}
-        resizeMode='cover'
+        resizeMode="cover"
         style={styles.image}
       >
-
         <Text style={styles.title}>Chat App</Text>
 
         <View style={styles.box}>
-
           {/* Input box to set user name passed to chat screen */}
           <TextInput
             onChangeText={(name) => setName(name)}
             value={name}
             style={styles.input}
-            placeholder='Your name...'
+            placeholder="Your name..."
           />
 
           {/* Allow user to choose a background color for the chat screen */}
@@ -65,14 +69,14 @@ export default function Start(props) {
 
           {/* Open chatroom, passing user name and background color as props */}
           <Pressable
-            onPress={() => props.navigation.navigate('Chat', { name: name, color: color })}
+            onPress={() =>
+              props.navigation.navigate("Chat", { name: name, color: color })
+            }
             style={({ pressed }) => [
               {
-                backgroundColor: pressed
-                  ? '#585563'
-                  : '#757083'
+                backgroundColor: pressed ? "#585563" : "#757083",
               },
-              styles.button
+              styles.button,
             ]}
           >
             <Text style={styles.buttontext}>Start Chatting</Text>
@@ -80,7 +84,7 @@ export default function Start(props) {
         </View>
       </ImageBackground>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -90,48 +94,46 @@ const styles = StyleSheet.create({
 
   image: {
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
+    flexDirection: "column",
+    justifyContent: "space-evenly",
+    alignItems: "center",
   },
 
   title: {
     fontSize: 45,
-    fontWeight: '600',
-    color: '#ffffff',
+    fontWeight: "600",
+    color: "#ffffff",
   },
 
   box: {
-    width: '88%',
-    backgroundColor: 'white',
-    alignItems: 'center',
-    height: '44%',
-    justifyContent: 'space-evenly',
-
+    width: "88%",
+    backgroundColor: "white",
+    alignItems: "center",
+    height: "44%",
+    justifyContent: "space-evenly",
   },
 
   input: {
     height: 50,
-    width: '88%',
+    width: "88%",
     fontSize: 16,
-    fontWeight: '300',
-    color: '#757083',
-    borderColor: 'gray',
+    fontWeight: "300",
+    color: "#757083",
+    borderColor: "gray",
     borderWidth: 1,
     paddingHorizontal: 10,
-
   },
 
   text: {
-    color: '#757083',
+    color: "#757083",
     fontSize: 16,
-    fontWeight: '300',
+    fontWeight: "300",
   },
 
   colorContainer: {
-    width: '88%',
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    width: "88%",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
   },
 
   colorbutton: {
@@ -142,14 +144,14 @@ const styles = StyleSheet.create({
 
   button: {
     height: 50,
-    width: '88%',
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: "88%",
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   buttontext: {
-    color: '#ffffff',
+    color: "#ffffff",
     fontSize: 16,
-    fontWeight: '600',
-  }
+    fontWeight: "600",
+  },
 });
